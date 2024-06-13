@@ -1,0 +1,36 @@
+PODS:
+  - Alamofire (5.9.1)
+  - AlamofireImage (4.3.0):
+    - Alamofire (~> 5.8)
+  - AppAuth (1.7.3):
+    - AppAuth/Core (= 1.7.3)
+    - AppAuth/ExternalUserAgent (= 1.7.3)
+  - AppAuth/Core (1.7.3)
+  - AppAuth/ExternalUserAgent (1.7.3):
+    - AppAuth/Core
+  - BConnect (1.0.0):
+    - AlamofireImage (~> 4.3)
+    - AppAuth (~> 1.7.3)
+
+DEPENDENCIES:
+  - BConnect (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AlamofireImage
+    - AppAuth
+
+EXTERNAL SOURCES:
+  BConnect:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
+  AlamofireImage: 843953fa97bee5f561cf05d83abd759e590b068d
+  AppAuth: a13994980c1ec792f7e2e665acd4d4aa6be43240
+  BConnect: 0f8f9ef82d67465a16dbb4dbaa49a50b8a201494
+
+PODFILE CHECKSUM: 078a34c2f67acc10707300fb4dff35a8337ab277
+
+COCOAPODS: 1.15.2

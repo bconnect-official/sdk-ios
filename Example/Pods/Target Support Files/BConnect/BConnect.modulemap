@@ -1,0 +1,6 @@
+framework module BConnect {
+  umbrella header "BConnect-umbrella.h"
+
+  export *
+  module * { export * }
+}
