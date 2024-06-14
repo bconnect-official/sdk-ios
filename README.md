@@ -1,16 +1,16 @@
-# BConnect iOS SDK
+# iOS b.connect SDK
 
 ## Requirements
 
 You must have [CocoaPods](https://cocoapods.org) installed in order to add the dependency.
 
-The SDK target iOS 11 for compilation, and iOS 16 for features. This means you can add the BConnect dependency to an app that targets older versions, and use its functionality in newer iOS versions only.
+The SDK target iOS 11 for compilation, and iOS 16 for features. This means you can add the b.connect dependency to an app that targets older versions, and use its functionality in newer iOS versions only.
 
 You also must have a client ID, given by b.connect, and a deeplink scheme set in your application (it will be use as a callback from web pages during the authorize process). 
 
 ## Installation
 
-BConnect is available through [CocoaPods](https://cocoapods.org). To install
+b.connect SDK is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
@@ -24,9 +24,17 @@ You will mainly use three objects:
 - `BConnectConfiguration`. This is the data structure containing all the information required for the SDK to function correctly.
 - `BConnectButton`. This is the UI component.
 
+### Import
+
+Add an import statement when you want to use b.connect SDK:
+
+```swift
+import BConnect
+```
+
 ### Setup
 
-Before performing any request, BConnect must be setup with some informations. For that, you have to instantiate a `BConnectConfiguration` with your settings, and then call `BConnect.setup(configuration:)` method with it.
+Before performing any request, `BConnect` must be setup with some informations. For that, you have to instantiate a `BConnectConfiguration` with your settings, and then call `BConnect.setup(configuration:)` method with it.
 
 ```swift
 let configuration = BConnectConfiguration(
@@ -46,7 +54,7 @@ Note that the configuration is not saved. You should setup a configuration **eac
 
 ### Adding a button
 
-To add a BConnectButton in your view, you can add a *UIView* in your *storyboard* or *xib* and then set `BconnectButton` as *class* in the *Identity Inspector*. 
+To add a `BconnectButton` in your view, you can add a *UIView* in your *storyboard* or *xib* and then set `BconnectButton` as *class* in the *Identity Inspector*. 
 
 You can also add it from code by instantiating a `BConnectButton()` and adding it in a subview.
 
@@ -68,7 +76,7 @@ bconnectButton.set(style: .custom(name: "bconnect_largebutton_white_noborder"))
 
 #### Action
 
-You will want to add a target in order to listen events the same way you would with a UIButton. Note that `BConnectButton` inherits from `UIButton`.
+You will want to add a target in order to listen events the same way you would with a `UIButton`. Note that `BConnectButton` inherits from `UIButton`.
 
 ```swift
 bconnectButton.addTarget(self, action: #selector(onTapBConnect), for: .touchUpInside)
@@ -81,7 +89,7 @@ private func onTapBConnect(sender : UIButton) {
 }
 ```
 
-You can also do it from a stoyboard with an IBAction.
+You can also do it from a stoyboard with an `IBAction`.
 
 ### Requesting an authorize
 
@@ -93,7 +101,9 @@ BConnect.shared.requestAuthorize(presenting: self) { [weak self] result in
 }
 ```
 
-This code may be called from a tap on the BConnectButton, for example.
+This code may be called from a tap on the `BConnectButton`, for example.
+
+b.connect SDK will use [AppAuth](https://github.com/openid/AppAuth-iOS) for communicating with OAuth 2.0 and OpenID Connect providers.
 
 ### Handling callback from web session
 
